@@ -1,0 +1,740 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --dark: #121212;
+    --dark-hover: #363636;
+    --darkGray: #212121;
+    --primary: #ffa500;
+    --primary-hover: #ffba3a;
+}
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+
+
+/* ================================================
+# Reset values by default
+================================================ */
+img {
+    width: 100%;
+}
+/* Hiperlinks */
+a {
+    text-decoration: none;
+    color: var(--dark);
+    font-size: 1rem;
+}
+a:hover {
+    color: var(--dark-hover);
+}
+a.dark {
+    color: var(--dark);
+    transition: 1s;
+}
+a.dark:hover {
+    color: var(--dark-hover);
+}
+a.white {
+    color: white;
+}
+a.white:hover {
+    color: lightgray;
+}
+/* Headings */
+h1,h2,h3,h4,h5,h6 { font-weight: 900;}
+h1 { font-size: 42px;}
+h2 { font-size: 42px;}
+h4 { font-size: 26px;}
+h5 { font-size: 22px;}
+h1.white,h2.white,h3.white,h4.white,h5.white,h6.white { color:white; font-weight: 700;}
+
+/* Texts */
+p { font-size: 18px; line-height: 1.2em;}
+p.white { color: white;}
+
+/* Buttons */
+button, input[type="submit"] {
+    padding: 1.2em 1.5em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button a {
+    color: white;
+}
+button a:hover {
+    color: white;
+}
+.btn-primary {
+    background: var(--primary);
+    transition: background 1s;
+}
+.btn-primary:hover {
+    background: var(--primary-hover);
+}
+.btn-dark {
+    background: var(--dark);
+    transition: background 1s;
+}
+.btn-dark:hover {
+    background: var(--dark-hover);
+}
+/* Forms */
+input[type=text],
+input[type=email],
+input[type=number],
+input[type=tel],
+input[type=date],
+input[type=time],
+textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background: #f3f3f3;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+}
+textarea {
+    resize: vertical;
+    height: 305px;
+    margin-bottom: 20px;
+}
+input[type="submit"] {
+    text-transform: uppercase;
+    font-size: 16px;
+    width: 100%;
+    padding: 13px;
+}
+/* Tables */
+table {
+    width: 100%;
+    border-spacing: 0;
+}
+td, th {
+    padding: 15px 20px;
+    font-size: 16px;
+}
+
+/* ================================================
+# BEM - Blocks, Elements, Modifiers
+================================================ */
+/* BLOCKS */
+.block {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    padding: 0px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 1280px;
+    width: 100%;
+}
+.main-content .container > .__title {
+    margin-bottom: 20px;
+}
+/* Color de fuentes */
+.f-primary { color: var(--primary);}
+.f-white { color: white;}
+
+/* Colores de enlaces */
+.l-primary { color: var(--primary);}
+.l-primary:hover { color: var(--primary-hover);}
+.l-white { color: white;}
+.l-white:hover { color: darkgray;}
+
+/* ================================================
+# Header navigation
+================================================ */
+#navbar {
+    background: var(--dark);
+    padding: 15px 0px;
+    position: fixed;
+    z-index: 100;
+}
+#navbar .container {
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+/* Logo */
+.logo__title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* Navigation */
+#navbar .navigation a {
+    margin-left: 25px;
+    font-size: 16px;
+}
+#navbar .navigation a:last-child {
+    margin-left: 0;
+}
+#navbar button {
+    padding: 0.8em 1.5em;
+    margin-left: 25px;
+}
+
+/* ================================================
+# Header carousel
+================================================ */
+/* Carousel */
+.carousel {
+    height: 450px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.carousel .container {
+    justify-content: flex-end;
+}
+/* Carousel - General settings */
+.carousel--image,
+.carousel .container {
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    overflow: hidden;
+}
+/* Carousel -- Image */
+.carousel--image {
+    width: 100%;
+    position: absolute;
+}
+.carousel--image .__background {
+    top: 0;
+    opacity: 50%;
+    width: 100%;
+    height: 450px;
+    position: absolute;
+    background: black;
+}
+/* Carousel -- Description */
+.carousel--description {
+    width: 100%;
+}
+.carousel--description .__title {
+    width: 45%;
+    line-height: 1.1em;
+    margin-bottom: 0.3em;
+}
+.carousel--description .__description {
+    width: 45%;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.3em;
+    margin-bottom: 1em;
+}
+.carousel--description .__button {
+    padding: 1.2em 2.5em;
+}
+.carousel--description .__button a {
+    text-transform: uppercase;
+}
+/* Carousel -- Controller */
+.carousel--controller {
+    padding: 10px 0px 50px;
+}
+.carousel--controller button {
+    border-radius: 50%;
+    border: 3px solid white;
+    padding: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.carousel--controller button:last-child {
+    margin-right: 0px;
+}
+
+/* ================================================
+# Footer navigation
+================================================ */
+#footer {
+    display: block;
+}
+/* FOOTER RESTAURANT DETAILS */
+.restaurant {
+    display: flex;
+    justify-content: center;
+    background: var(--darkGray);
+    padding: 50px 0px;
+}
+.restaurant .container {
+    flex-direction: row;
+    justify-content: space-between;
+}
+/* Food Restaurant - Details */
+.restaurant .details {
+    width: calc(50% - 20px);
+    justify-content: space-between;
+}
+.restaurant .details:nth-child(2) {
+    display: flex;
+}
+.__details--location,
+.__details--contact {
+    width: calc(50% - 20px);
+}
+.details .__description {
+    font-weight: 300;
+}
+/* Details - Elements */
+.restaurant .details .__title {
+    margin-bottom: .5em;
+}
+
+/* FOOTER NAVIGATION */
+.footer-navigation {
+    width: 100%;
+    background: var(--dark);
+    padding: 15px 0px;
+}
+.footer-navigation .container {
+    justify-content: space-between;
+    flex-direction: row;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+/* Footer navigation */
+.copyright {
+    font: 16px;
+}
+/* Footer navigation - Copyright */
+.copyright p,
+.copyright a {
+    font-size: 16px;
+}
+/* Social Media Icons */
+.sm-icons svg {
+    width: 20px;
+    margin-left: 10px;
+}
+.sm-icons svg path {
+    transition: 1s;
+    fill: white;
+}
+.sm-icons svg:hover path {
+    fill: var(--primary);
+}
+
+/* ================================================
+# Main content
+================================================ */
+.main-content {
+    display: flex;
+    justify-content: center;
+    padding: 100px 0;
+}
+.main-content .container {
+    align-items: flex-start;
+}
+/* ================================================
+# Highlight menu
+================================================ */
+.highlight-menu {
+    padding-top: 20px;
+    display: flex;
+    gap: 25px;
+    width: 100%;
+    max-width: 1180px;
+    overflow-x: scroll;
+    padding-bottom: 30px;
+    cursor: grab;
+}
+.highlight-menu:active {
+    cursor: grabbing;
+}
+/* Card - General settings */
+.highlight-menu .card {
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,.15);
+    min-width: 300px;
+}
+.highlight-menu::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+.highlight-menu::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 10px;
+    border: 3px solid #f1f1f1;
+}
+.highlight-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+/* Card - Image */
+.card--img {
+    height: 210px;
+}
+.card--img img {
+    width: auto;
+    height: 100%;
+}
+/* Card - Content */
+.card--content {
+    padding: 25px;
+}
+/* Card content - Description */
+.card--content .__description--title {
+    margin-bottom: 0.2em;
+}
+.card--content .__description--description {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 0.5em;
+}
+.card--content .__description--price {
+    margin-bottom: 1em;
+}
+/* Card content - Buttons */
+.card--buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.card--buttons .__min-max {
+    padding: 5px 7px;
+    background: #e0e0e0;
+    border-radius: 35px;
+}
+.card--buttons .__min-max button {
+    border-radius: 50%;
+    padding: 5px;
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    background: white;
+    transition: background 0.5s;
+}
+.card--buttons .__min-max button:hover {
+    background: var(--primary);
+}
+.card--buttons .__min-max span {
+    padding: 0px 10px;
+}
+.card--buttons .__add-btn button {
+    padding: 0.5em 1.5em;
+}
+
+/* ================================================
+# Cover main content
+================================================ */
+#hero {
+    padding: 15px;
+}
+/* Carousel */
+.cover-content {
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.cover-content .container {
+    padding: 119px 50px 50px 50px;
+}
+/* Carousel - General settings */
+.cover-content--image,
+.cover-content .container {
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    overflow: hidden;
+}
+/* Carousel -- Image */
+.cover-content--image {
+    width: 100%;
+    position: absolute;
+}
+.cover-content--image .__background {
+    top: 0;
+    opacity: 50%;
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    background: black;
+}
+/* Carousel -- Description */
+.cover-content--description {
+    width: 100%;
+}
+.cover-content--description .__title {
+    width: 45%;
+    line-height: 1.1em;
+    margin: 0 auto;
+    margin-bottom: 0.3em;
+    text-align: center;
+    font-weight: 400;
+    font-size: 52px;
+    font-family: 'Lobster', sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+.cover-content--description .__title span {
+    line-height: 1.2em;
+    font-size: 36px;
+    font-weight: 300;
+    font-style: italic;
+    font-family: 'Lato', sans-serif;
+    margin-top: -5px;
+}
+.cover-content--description .__description {
+    width: 45%;
+    font-size: 21px;
+    font-weight: 300;
+    line-height: 1.3em;
+    margin-bottom: 1em;
+}
+.cover-content--description .__button {
+    padding: 1.2em 2.5em;
+}
+.cover-content--description .__button a {
+    text-transform: uppercase;
+}
+/* Carousel -- Controller */
+.cover-content--controller {
+    padding: 10px 0px 50px;
+}
+.cover-content--controller button {
+    border-radius: 50%;
+    border: 3px solid white;
+    padding: 5px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+.cover-content--controller button:last-child {
+    margin-right: 0px;
+}
+
+/* ================================================
+# Open card
+================================================ */
+.open-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,50%);
+    z-index: 1000;
+    position: fixed;
+    width: 100vw;
+    min-height: 100vh;
+}
+.open-card--container {
+    width: 600px;
+    background: white;
+    padding: 0 50px 50px 50px;
+    border-radius: 10px;
+}
+/* Open card - Close card */
+.open-card--close .__box {
+    width: 50px;
+    height: 50px;
+    background: var(--dark);
+    transition: background 1s;
+}
+.open-card--close .__box:nth-child(2) {
+    width: 70px;
+}
+.open-card--close .uno,
+.open-card--close .dos,
+.open-card--close .tres {
+    width: 100%;
+    height: 100%;
+    background: white;
+}
+.open-card--close .uno {
+    border-radius: 0 50% 0 0;
+}
+.open-card--close .tres {
+    border-radius: 50% 0 0 0;
+}
+.open-card--close {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin: 0 auto;
+    width: 150px;
+}
+.open-card--close button {
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    border-radius: 0 0 70px 70px;
+    background: var(--dark);
+    transition: background 1s;
+}
+.open-card--close:hover .__box,
+.open-card--close:hover button {
+    background: var(--dark-hover);
+}
+/* Elements inside open card */
+.open-card .__description--title,
+.open-card .card--img,
+.open-card .__description--description,
+.open-card .__description--price {
+    margin-bottom: 15px;
+}
+.open-card .__description--title {
+    margin-top: 15px;
+}
+/* Image */
+.open-card .card--img {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+.open-card .card--img img {
+    width: 100%;
+    height: auto;
+}
+
+/* ================================================
+# Menu - Page
+================================================ */
+.menu--img-featured {
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+.menu-category {
+    width: 100%;
+    margin-bottom: 60px;
+}
+/* Menu - General settings */
+#menu {
+    max-width: 1000px;
+    width: 100%;
+    margin: 30px auto;
+    display: flex;
+    flex-flow: wrap;
+}
+/* Menu - Menu Items */
+.menu--item {
+    display: flex;
+    align-items: center;
+    padding: 15px 0px;
+    width: calc(50% - 10px);
+    border-bottom: 1px solid gray;
+}
+.menu--item:nth-child(1),
+.menu--item:nth-child(2) {
+    border-top: 1px solid gray;
+}
+.menu--item:nth-child(odd) {
+    margin-right: 20px;
+}
+/* Menu Items - Image */
+.menu--item .__img {
+    width: 60px;
+    height: 60px;
+    background: gray;
+    min-width: 60px;
+}
+/* Menu items - Description */
+.menu--item > .__description {
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    position: relative;
+    width: -webkit-fill-available;
+}
+.menu--item .__description .__title {
+    font-size: 18px;
+}
+.menu--item .__description .__description {
+    font-size: 16px;
+}
+/* Menu Items - Price */
+.menu--item .__price {
+    min-width: 85px;
+    margin-left: 15px;
+}
+.menu--item .__price .__price--title {
+    font-size: 20px;
+    margin: 0 0 0 auto;
+    text-align: right;
+}
+
+/* ================================================
+# Menu - Page
+================================================ */
+#booking {
+    width: 100%;
+}
+#booking form {
+    display: flex;
+    justify-content: space-between;
+}
+.booking--container {
+    width: calc(50% - 20px);
+}
+
+/* ================================================
+# Gallery - Page
+================================================ */
+.main-content.gallery {
+    flex-direction: column;
+}
+.main-content.gallery .container {
+    margin: 0 auto;
+}
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+}
+.gallery-img {
+    width: 25%;
+    margin-bottom: -4px;
+}
+.gallery img {
+    transition: 1s;
+    height: 100%;
+}
+
+/* ================================================
+# Order - Page
+================================================ */
+tbody tr:nth-child(odd) {
+    background: #f1f1f1;
+}
+.t-second, .t-delete {
+    text-align: center;
+}
+table .t-second {
+    width: 120px;
+}
+table .t-delete {
+    width: 75px;
+}
+/* Table headings */
+thead .t-first {
+    text-align: left;
+}
+thead th {
+    font-weight: 900;
+    font-size: 20px;
+}
+/* Table body */
+tbody td {
+    color: gray;
+}
