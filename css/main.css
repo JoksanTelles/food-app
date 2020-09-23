@@ -140,7 +140,7 @@ td, th {
     width: 100%;
 }
 .main-content .container > .__title {
-    margin-bottom: 20px;
+    margin-bottom: 0.6em;
 }
 /* Color de fuentes */
 .f-primary { color: var(--primary);}
@@ -161,9 +161,12 @@ td, th {
     position: fixed;
     z-index: 100;
 }
-#navbar .container {
+#navbar .container .main-navigation {
     justify-content: space-between;
     flex-direction: row;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 /* Logo */
@@ -183,6 +186,38 @@ td, th {
 #navbar button {
     padding: 0.8em 1.5em;
     margin-left: 25px;
+}
+
+/* ================================================
+# Responsive menu
+================================================ */
+#navbar .mobile-navigation {
+    display: none;
+}
+.menu-responsive {
+    display: none;
+}
+/* Menu (default) - hide elements */
+#navbar.closed #close-menu,
+#navbar.opened #open-menu {
+    display: none;
+}
+/* Show elements */
+#navbar.closed #open-menu,
+#navbar.opened #close-menu {
+    display: flex;
+}
+/* Show and Hide menu */
+#navbar.opened .mobile-navigation {
+    display: flex;
+}
+#navbar.closed .mobile-navigation {
+    display: none;
+}
+
+/* Navigation non responsive */
+@media screen and (max-width: 700) {
+    .menu-responsive { display: flex;}
 }
 
 /* ================================================
@@ -217,7 +252,7 @@ td, th {
     top: 0;
     opacity: 50%;
     width: 100%;
-    height: 450px;
+    height: 100%;
     position: absolute;
     background: black;
 }
@@ -309,7 +344,7 @@ td, th {
 }
 /* Footer navigation */
 .copyright {
-    font: 16px;
+    font-size: 16px;
 }
 /* Footer navigation - Copyright */
 .copyright p,
@@ -317,6 +352,9 @@ td, th {
     font-size: 16px;
 }
 /* Social Media Icons */
+#footer nav.sm-icons {
+    min-width: 130px;
+}
 .sm-icons svg {
     width: 20px;
     margin-left: 10px;
@@ -344,7 +382,6 @@ td, th {
 # Highlight menu
 ================================================ */
 .highlight-menu {
-    padding-top: 20px;
     display: flex;
     gap: 25px;
     width: 100%;
@@ -407,24 +444,27 @@ td, th {
     justify-content: space-between;
     align-items: center;
 }
-.card--buttons .__min-max {
+.__min-max {
     padding: 5px 7px;
     background: #e0e0e0;
     border-radius: 35px;
 }
-.card--buttons .__min-max button {
+.__min-max button {
     border-radius: 50%;
-    padding: 5px;
+    padding: 10px;
     width: 30px;
     height: 30px;
     font-size: 16px;
     background: white;
     transition: background 0.5s;
 }
-.card--buttons .__min-max button:hover {
+.__min-max button img {
+    display: block;
+}
+.__min-max button:hover {
     background: var(--primary);
 }
-.card--buttons .__min-max span {
+.__min-max span {
     padding: 0px 10px;
 }
 .card--buttons .__add-btn button {
@@ -621,7 +661,7 @@ td, th {
     margin-bottom: 60px;
 }
 /* Menu - General settings */
-#menu {
+.menu-content {
     max-width: 1000px;
     width: 100%;
     margin: 30px auto;
@@ -692,10 +732,11 @@ td, th {
 /* ================================================
 # Gallery - Page
 ================================================ */
-.main-content.gallery {
+.main-content.gallery, .main-content.order {
     flex-direction: column;
 }
-.main-content.gallery .container {
+.main-content.gallery .container,
+.main-content.order .container {
     margin: 0 auto;
 }
 #gallery {
@@ -714,27 +755,228 @@ td, th {
 /* ================================================
 # Order - Page
 ================================================ */
-tbody tr:nth-child(odd) {
-    background: #f1f1f1;
-}
-.t-second, .t-delete {
-    text-align: center;
-}
-table .t-second {
-    width: 120px;
-}
-table .t-delete {
-    width: 75px;
-}
+tbody tr:nth-child(odd) { background: #f1f1f1;}
+.t-second, .t-delete { text-align: center;}
+table .t-second { width: 120px;}
+table .t-delete { width: 75px;}
+table .t-delete button { padding: 10px; background: transparent;}
+
 /* Table headings */
-thead .t-first {
-    text-align: left;
-}
-thead th {
-    font-weight: 900;
-    font-size: 20px;
-}
+thead .t-first { text-align: left;}
+thead th { font-weight: 900; font-size: 20px;}
+
 /* Table body */
-tbody td {
-    color: gray;
+tbody td { color: gray;}
+.t-second:nth-child(2) { justify-content: center; display: flex;}
+.table-responsive-stack .table-responsive-stack-thead { font-weight: bold; display: block;}
+.order .__min-max { min-width: 96px; padding: 5px 0; background: transparent;}
+.t-delete span { display:none;}
+
+@media screen and (max-width: 719px) {
+
+    /* Order page */
+    .table-responsive-stack tr {
+    flex-direction: column;
+    display: block;
+    }
+    .t-second, .t-delete { text-align: left;}
+    .table-responsive-stack .table-responsive-stack-thead {
+        color: var(--dark);
+        font-size: 16px;
+        font-weight: 900;
+        margin-bottom: 4px;
+    }
+    .main-content.order .container {
+        padding: 0;
+    }
+    .main-content.order .container h2 {
+        padding: 0 30px;
+    }
+    td, th { padding: 10px 30px; display: block;}
+    .main-content.order tr { padding: 20px 0;}
+    .t-second:nth-child(2) { justify-content: left; display: block;}
+    .t-delete button span { display:block; font-size: 16px; color:gray;}
+    table .t-delete button {
+        border: 1px solid gray;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 40px;
+        width: 125px;
+        padding: 10px 20px;
+    }
+    table .t-delete button img { width: auto; height: 100%;}
+}
+
+/* ================================================
+# Responsive Design
+================================================ */
+@media screen and (max-width: 1024px){
+    /* Default settings */
+    p { font-size: 16px;}
+    h2 { font-size: 36px;}
+    h4 { font-size: 24px;}
+
+    /* Menu category */
+    #menu .container { padding: 0;}
+    .menu-category > .__title { padding: 0 50px;}
+    .menu-content { padding: 0 50px;}
+    .menu--item { align-items: flex-start;}
+
+}
+
+@media screen and (max-width: 980px) {
+    /* Footer */
+    .restaurant .details { flex-direction: column;}
+    .restaurant .container { align-items: flex-start;}
+    .__details--location, .__details--contact { width: 100%;}
+    .__details--location { margin-bottom: 1em;}
+
+    /* Galería */
+    .gallery-img { width: 33.33333%;}
+}
+
+@media screen and (max-width: 800px) {
+
+    /* Carousel */
+    .carousel--description .__description { font-size: 18px;}
+    .carousel--image img {
+        width: auto;
+        height: 100%;
+    }
+    .carousel--description .__button { padding: 1em 2em;}
+    
+    .carousel--description .__title,
+    .carousel--description .__description {
+        width: 65%;
+    }
+
+    /* Cover content */
+    .cover-content--description .__title { font-size: 46px;}
+    .cover-content--description .__title span { font-size: 30px;}
+}
+
+@media screen and (max-width: 730px) {
+    /* Navigation */
+    .main-navigation nav.navigation { display: none;}
+    .menu-responsive { display: block; width: 20px;}
+    #navbar .container {
+        flex-direction: column;
+    }
+    .main-navigation {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    nav.mobile-navigation {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+    }
+    nav.mobile-navigation a {
+        margin-bottom: 15px;
+    }
+    #navbar button { margin-left: 0px;}
+    nav.mobile-navigation { margin: 30px 0 10px 0;}
+    .menu-responsive, .mobile-navigation {
+        display: flex;
+    }
+    .menu-responsive button { background: transparent; width: 18px; height: 18px;padding:0;}
+
+
+    /* Menu */
+    .menu--item:nth-child(odd) { margin-right: 0px;}
+    .menu--item:nth-child(2) { border-top: 0;}
+    .menu--item { width: 100%;}
+}
+
+@media screen and (max-width: 600px) {
+    /* Hero Section - Carousel */
+    .carousel--description .__button {
+        padding: 0.7em 2em;
+        font-size: 12px;
+    }
+    .carousel--description {
+        margin-bottom: 15px;
+    }
+    .carousel--controller {
+        padding: 0px 0px 40px;
+    }
+    .carousel, .carousel--image, .carousel .container {
+        height: 500px;
+    }
+    .carousel--description .__title,
+    .carousel--description .__description {
+        width: 100%;
+    }
+    /* Header all pages */
+    .cover-content--image img {width: auto; height: 100%;}
+    .cover-content--description .__title { width:100%;}
+    /* Footer */
+    .footer-navigation .container {
+        flex-direction: column;
+    }
+    .copyright {
+        margin-bottom: 1em;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    /* Default settings */
+    body { font-size: 16px;}
+    h2 { font-size: 32px;}
+    h4 {font-size: 22px;}
+    .container { padding: 0 30px;}
+
+    /* Header navigation */
+    .logo__title { font-size: 20px;}
+
+    /* Hero section - carusel */
+    .carousel--controller button {
+        border: 3px solid white;
+        padding: 4px;
+        margin-right: 10px;
+    }
+    /* Main menu carousel */
+    .highlight-menu { gap: 15px;}
+    .highlight-menu .card { min-width: 280px;}
+    
+    /* Menu */
+    .menu--img-featured { margin-top: 10px; height: auto;}
+    .menu--item .__img { min-width: 50px; height: 50px;}
+    .menu-content { padding: 0 30px;}
+    /* Footer */
+    .restaurant .container { flex-direction: column;}
+    .restaurant .details { width: 100%;}
+    .restaurant .details:nth-child(1) { margin-bottom: 15px;}
+    .restaurant .details .__title { margin-bottom: .2em;}
+
+    /* Booking */
+    #booking form { flex-direction: column;}
+    .booking--container { width: 100%;}
+
+    /* Gallery */
+    .gallery-img { width: 50%;}
+}
+
+@media screen and (max-width: 375px) {
+    /* Menu */
+    .menu--item .__price { min-width: 70px;}
+    .menu--item > .__description { margin-left: 15px;}
+    .menu--item .__description .__title { font-size: 16px; margin-bottom: 4px;}
+    .menu--item .__description .__description { font-size: 14px;}
+    .menu--item .__price .__price--title { font-size: 17px;}
+}
+
+@media screen and (max-width: 320px) {
+    .container {
+        padding: 0 20px;
+    }
+    /* Main menu carousel */
+    .card--buttons .__min-max button {
+        width: 25px;
+        height: 25px;
+        font-size: 13px;
+    }
 }
