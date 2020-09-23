@@ -22,20 +22,43 @@
 </head>
 <body>
     <!-- Header navigation -->
-    <header id="navbar" class="block">
+    <header id="navbar" class="block closed">
         <div class="container">
-            <div class="logo">
-                <a href="#" class="logo__title white">Tony's restaurant</a>
+            <div class="main-navigation">
+                <!-- Main navigation - Logo -->
+                <div class="logo">
+                    <a href="#" class="logo__title white">Tony's restaurant</a>
+                </div>
+                <!-- Main navigation - Desktop navigation -->
+                <nav class="navigation">
+                    <!-- Content in navigation -->
+                    <div class="navigation--content">
+                        <a href="./index.html" class="white">Inicio</a>
+                        <a href="./menu.html" class="white">Menú</a>
+                        <a href="./reservacion.html" class="white">Reservación</a>
+                        <a href="./galeria.html" class="white">Galería</a>
+                        <button class="btn-primary">
+                            <a href="./orden.html">Órden</a>
+                        </button>
+                    </div>
+                </nav>
+                <!-- Main navigation - Menu responsive -->
+                <div class="menu-responsive">
+                    <img id="open-menu" src="./img/icons/menu.svg" alt="">
+                    <img id="close-menu" src="./img/icons/close.svg" alt="">
+                </div>
             </div>
-            <nav class="navigation">
-                <a href="#" class="white">Inicio</a>
-                <a href="#" class="white">Menú</a>
-                <a href="#" class="white">Reservación</a>
-                <a href="#" class="white">Galería</a>
+            <!-- Navigation on mobile -->
+            <nav class="mobile-navigation">
+                <a href="./index.html" class="white">Inicio</a>
+                <a href="./menu.html" class="white">Menú</a>
+                <a href="./reservacion.html" class="white">Reservación</a>
+                <a href="./galeria.html" class="white">Galería</a>
                 <button class="btn-primary">
-                    <a href="#">Órden</a>
+                    <a href="./orden.html">Órden</a>
                 </button>
             </nav>
+            
         </div>
     </header>
 
@@ -68,9 +91,13 @@
                 <!-- Card content - Buttons -->
                 <div class="card--buttons">
                     <div class="__min-max">
-                        <button>-</button>
+                        <button>
+                            <img src="./img/icons/minus.svg" alt="">
+                        </button>
                         <span>3</span>
-                        <button>+</button>
+                        <button>
+                            <img src="./img/icons/plus.svg" alt="">
+                        </button>
                     </div>
                     <div class="__add-btn">
                         <button class="btn-dark"><a href="#">Agregar</a></button>
@@ -210,7 +237,7 @@
                         <h4 class="__title f-primary">Visítanos</h4>
                         <p class="__description f-white">Calle Washington 123, avenida Villa Guadalajara. C.P. 79456. Veracruz, México</p>
                     </div>
-                    <div class="details--contact">
+                    <div class="__details--contact">
                         <h4 class="__title f-primary">Contáctanos</h4>
                         <p class="__description f-white">Teléfono: (229) 123-4567<br> Email: hola@tonysrestaurant.com</p>
                     </div>
@@ -255,6 +282,9 @@
         </div>
         
     </footer>
+
+    <!-- Scripts -->
+    <script src="./js/open-nav.js"></script>
     
 </body>
 </html>

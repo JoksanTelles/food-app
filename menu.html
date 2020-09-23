@@ -23,12 +23,34 @@
 </head>
 <body>
     <!-- Header navigation -->
-    <header id="navbar" class="block">
+    <header id="navbar" class="block closed">
         <div class="container">
-            <div class="logo">
-                <a href="./index.html" class="logo__title white">Tony's restaurant</a>
+            <div class="main-navigation">
+                <!-- Main navigation - Logo -->
+                <div class="logo">
+                    <a href="#" class="logo__title white">Tony's restaurant</a>
+                </div>
+                <!-- Main navigation - Desktop navigation -->
+                <nav class="navigation">
+                    <!-- Content in navigation -->
+                    <div class="navigation--content">
+                        <a href="./index.html" class="white">Inicio</a>
+                        <a href="./menu.html" class="white">Menú</a>
+                        <a href="./reservacion.html" class="white">Reservación</a>
+                        <a href="./galeria.html" class="white">Galería</a>
+                        <button class="btn-primary">
+                            <a href="./orden.html">Órden</a>
+                        </button>
+                    </div>
+                </nav>
+                <!-- Main navigation - Menu responsive -->
+                <div class="menu-responsive">
+                    <img id="open-menu" src="./img/icons/menu.svg" alt="">
+                    <img id="close-menu" src="./img/icons/close.svg" alt="">
+                </div>
             </div>
-            <nav class="navigation">
+            <!-- Navigation on mobile -->
+            <nav class="mobile-navigation">
                 <a href="./index.html" class="white">Inicio</a>
                 <a href="./menu.html" class="white">Menú</a>
                 <a href="./reservacion.html" class="white">Reservación</a>
@@ -37,6 +59,7 @@
                     <a href="./orden.html">Órden</a>
                 </button>
             </nav>
+            
         </div>
     </header>
 
@@ -58,7 +81,7 @@
         </section>
 
         <!-- Main content -->
-        <section class="main-content">
+        <section id="menu" class="main-content">
             <div class="container">
 
                 <!-- Menu categories - Special menu -->
@@ -70,7 +93,7 @@
                         <img src="https://gourmetdemexico.com.mx/wp-content/uploads/2017/09/antojitos-mexicanos-gourmet-pambazos.jpg" alt="">
                     </div>
                     <!-- Menu categories - Menu -->
-                    <div id="menu">
+                    <div class="menu-content">
                         <!-- Menu Item 01 -->
                         <div class="menu--item">
                             <div class="__img">
@@ -153,7 +176,7 @@
                         <img src="https://dam.tbg.com.mx/content/dam/tbg/mexico/natgeo/mx/traveler/gastronomia/17/09/14/sopes.jpg.imgo.jpg" alt="">
                     </div>
                     <!-- Menu categories - Menu -->
-                    <div id="menu">
+                    <div class="menu-content">
                         <!-- Menu Item 01 -->
                         <div class="menu--item">
                             <div class="__img">
@@ -236,7 +259,7 @@
                         <img src="https://tipsparatuviaje.com/wp-content/uploads/2018/09/tacos-comida-mexicana.jpg" alt="">
                     </div>
                     <!-- Menu categories - Menu -->
-                    <div id="menu">
+                    <div class="menu-content">
                         <!-- Menu Item 01 -->
                         <div class="menu--item">
                             <div class="__img">
@@ -319,7 +342,7 @@
                         <img src="https://cdn.needish.com/is-prod-deals/lB7HuaG0pprfA61OrCuUPg/scale/900x600.jpg" alt="">
                     </div>
                     <!-- Menu categories - Menu -->
-                    <div id="menu">
+                    <div class="menu-content">
                         <!-- Menu Item 01 -->
                         <div class="menu--item">
                             <div class="__img">
@@ -415,7 +438,7 @@
                         <h4 class="__title f-primary">Visítanos</h4>
                         <p class="__description f-white">Calle Washington 123, avenida Villa Guadalajara. C.P. 79456. Veracruz, México</p>
                     </div>
-                    <div class="details--contact">
+                    <div class="__details--contact">
                         <h4 class="__title f-primary">Contáctanos</h4>
                         <p class="__description f-white">Teléfono: (229) 123-4567<br> Email: hola@tonysrestaurant.com</p>
                     </div>
@@ -460,6 +483,9 @@
         </div>
         
     </footer>
+
+    <!-- Scripts -->
+    <script src="./js/open-nav.js"></script>
     
 </body>
 </html>

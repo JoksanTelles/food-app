@@ -23,12 +23,34 @@
 </head>
 <body>
     <!-- Header navigation -->
-    <header id="navbar" class="block">
+    <header id="navbar" class="block closed">
         <div class="container">
-            <div class="logo">
-                <a href="./index.html" class="logo__title white">Tony's restaurant</a>
+            <div class="main-navigation">
+                <!-- Main navigation - Logo -->
+                <div class="logo">
+                    <a href="#" class="logo__title white">Tony's restaurant</a>
+                </div>
+                <!-- Main navigation - Desktop navigation -->
+                <nav class="navigation">
+                    <!-- Content in navigation -->
+                    <div class="navigation--content">
+                        <a href="./index.html" class="white">Inicio</a>
+                        <a href="./menu.html" class="white">Menú</a>
+                        <a href="./reservacion.html" class="white">Reservación</a>
+                        <a href="./galeria.html" class="white">Galería</a>
+                        <button class="btn-primary">
+                            <a href="./orden.html">Órden</a>
+                        </button>
+                    </div>
+                </nav>
+                <!-- Main navigation - Menu responsive -->
+                <div class="menu-responsive">
+                    <img id="open-menu" src="./img/icons/menu.svg" alt="">
+                    <img id="close-menu" src="./img/icons/close.svg" alt="">
+                </div>
             </div>
-            <nav class="navigation">
+            <!-- Navigation on mobile -->
+            <nav class="mobile-navigation">
                 <a href="./index.html" class="white">Inicio</a>
                 <a href="./menu.html" class="white">Menú</a>
                 <a href="./reservacion.html" class="white">Reservación</a>
@@ -37,6 +59,7 @@
                     <a href="./orden.html">Órden</a>
                 </button>
             </nav>
+            
         </div>
     </header>
 
@@ -123,11 +146,48 @@
                         <h4 class="__title f-primary">Visítanos</h4>
                         <p class="__description f-white">Calle Washington 123, avenida Villa Guadalajara. C.P. 79456. Veracruz, México</p>
                     </div>
-                    <div class="details--contact">
+                    <div class="__details--contact">
                         <h4 class="__title f-primary">Contáctanos</h4>
                         <p class="__description f-white">Teléfono: (229) 123-4567<br> Email: hola@tonysrestaurant.com</p>
                     </div>
                 </div>
+
+                <table class="table table-bordered table-striped table-responsive-stack"  id="tableOne">
+                    <thead class="thead-dark">
+                       <tr>
+                          <th>Name</th>
+                          <th>Color</th>
+                          <th>Taste</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                       <tr>
+                          <td>Apple</td>
+                          <td>Green and Red</td>
+                          <td>Sweet and Tart</td>
+                       </tr>
+                       <tr>
+                          <td>Banana</td>
+                          <td>Yellow</td>
+                          <td>Sweet and Mushy</td>
+                       </tr>
+                       <tr>
+                          <td>Mango</td>
+                          <td>Yellowish Green</td>
+                          <td>Tangy</td>
+                       </tr>
+                       <tr>
+                          <td>Orange</td>
+                          <td>Orange</td>
+                          <td>Sweet and Tangy</td>
+                       </tr>
+                       <tr>
+                          <td>Blueberry</td>
+                          <td>Blue</td>
+                          <td>Mild Sweetness</td>
+                       </tr>
+                    </tbody>
+                 </table>
 
             </div>
             
@@ -168,6 +228,9 @@
         </div>
         
     </footer>
+
+    <!-- Scripts -->
+    <script src="./js/open-nav.js"></script>
     
 </body>
 </html>
